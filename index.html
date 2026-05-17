@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yasser Saidani — Software Engineering Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── BASE & VARIABLES ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --dark: #0f172a;
+      --mid: #475569;
+      --muted: #94a3b8;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-light: #eff6ff;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── NAVIGATION ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 15px 20px;
+      text-align: center;
+    }
+    .navbar a {
+      color: var(--mid);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0 18px;
+      transition: color 0.2s;
+    }
+    .navbar a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      color: #fff;
+      padding: 90px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .avatar-wrapper { position: relative; display: inline-block; margin-bottom: 24px; }
+    .avatar { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent); display: block; box-shadow: 0 0 20px rgba(37,99,235,0.4); }
+    .avatar-placeholder {
+      width: 140px; height: 140px; border-radius: 50%; background: #1e293b; border: 3px dashed #475569;
+      display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s;
+    }
+    .avatar-placeholder:hover { border-color: var(--accent); background: #0f172a; }
+    .avatar-placeholder svg { color: #94a3b8; transition: color 0.2s; }
+    .avatar-placeholder:hover svg { color: var(--accent); }
+    #photo-input { display: none; }
+    
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 10px; }
+    .hero .title { color: #cbd5e1; font-size: 1.15rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; }
+    
+    .contact-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 28px; }
+    .contact-bar a { color: #cbd5e1; text-decoration: none; font-size: 1rem; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+    .contact-bar a:hover { color: #fff; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 36px;
+      background: var(--accent); color: #fff !important; padding: 14px 32px;
+      border-radius: 999px; font-size: 0.95rem; font-weight: 600; text-decoration: none;
+      transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 14px rgba(37,99,235,0.3);
+    }
+    .btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+    /* ── LAYOUT (EXPANDED TO FIX COMPACTNESS) ── */
+    .page {
+      max-width: 1250px; /* Increased from 1000px to make it wider */
+      margin: 0 auto; 
+      padding: 50px 20px 100px;
+      display: grid; 
+      grid-template-columns: 350px 1fr; /* Increased sidebar width from 300px to 350px */
+      gap: 40px; /* Increased space between columns */
+      align-items: start;
+    }
+    @media (max-width: 850px) { .page { grid-template-columns: 1fr; } .navbar a { margin: 0 10px; font-size: 0.85rem; } }
+
+    /* ── SECTIONS & CARDS ── */
+    .sidebar { display: flex; flex-direction: column; gap: 32px; }
+    .main { display: flex; flex-direction: column; gap: 32px; }
+    
+    .card { background: var(--surface); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); transition: transform 0.3s; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08); }
+    .card h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; color: var(--dark); margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+    .card h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── TIMELINE (Education & Experience) ── */
+    .timeline { list-style: none; border-left: 2px solid var(--border); padding-left: 24px; margin-left: 10px; display: flex; flex-direction: column; gap: 28px; }
+    .timeline li { position: relative; }
+    .timeline li::before { content: ''; position: absolute; left: -31px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); }
+    .tl-date { font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
+    .tl-title { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .tl-subtitle { font-size: 0.95rem; color: var(--mid); font-weight: 500; }
+    .tl-desc { margin-top: 12px; font-size: 0.95rem; color: var(--mid); list-style-type: disc; padding-left: 20px; line-height: 1.7; }
+    .tl-desc li { margin-bottom: 8px; }
+
+    /* ── TAGS (Domains & Tools) ── */
+    .skill-group { margin-bottom: 28px; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-label { font-size: 0.95rem; font-weight: 600; color: var(--dark); margin-bottom: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag { background: var(--bg); border: 1px solid var(--border); color: var(--mid); border-radius: 6px; padding: 8px 16px; font-size: 0.9rem; font-weight: 500; transition: 0.2s; }
+    .tag:hover { background: var(--accent-light); color: var(--accent); border-color: #bfdbfe; }
+    
+    /* ── DYNAMIC PROGRESS GAUGES ── */
+    .progress-list { display: flex; flex-direction: column; gap: 16px; }
+    .progress-item { width: 100%; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+    .progress-bar { width: 100%; height: 8px; background: var(--border); border-radius: 999px; overflow: hidden; }
+    /* The width is controlled by JS when scrolling */
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 999px; width: 0; transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1); }
+
+    /* ── PROJECTS ── */
+    .project-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    .project { padding: 24px; border: 1px solid var(--border); border-radius: var(--radius); transition: 0.3s; background: var(--bg); }
+    .project:hover { border-color: var(--accent); background: #fff; box-shadow: var(--shadow); }
+    .project-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; color: var(--dark); }
+    .project-desc { font-size: 0.95rem; color: var(--mid); }
+
+    /* ── CERTIFICATES GALLERY ── */
+    .cert-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .cert-item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: 0.3s; }
+    .cert-item:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: var(--shadow); }
+    .cert-img-container { height: 220px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .cert-info { padding: 16px; text-align: center; }
+    .cert-info p { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .cert-source { font-size: 0.8rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; background: var(--accent-light); padding: 4px 10px; border-radius: 999px; display: inline-block; }
+
+    /* Fade In Animation */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#certifications">Certifications</a>
+</nav>
+
+<header class="hero" id="about">
+  <div class="avatar-wrapper">
+    <label for="photo-input" title="Upload your profile photo">
+      <img id="avatar-img" class="avatar" src="" alt="Yasser Saidani" style="display:none" />
+  <div class="avatar-wrapper">
+  <img class="avatar" src="images\image_prifisionnel.png" alt="Yasser Saidani" />
+</div>
+    </label>
+    <input type="file" id="photo-input" accept="image/*" />
+  </div>
+
+  <h1>Yasser Saidani</h1>
+  <p class="title">Software Engineering Student</p>
+
+  <div class="contact-bar">
+    <a href="mailto:saidaniyesser999@gmail.com">✉️ saidaniyesser999@gmail.com</a>
+    <a href="tel:+21650552771">📞 +216 50 552 771</a>
+  </div>
+
+  <a href="CV.pdf" download class="btn">Download CV</a>
+</header>
+
+<div class="page">
+  <aside class="sidebar fade-in">
+    <div class="card">
+      <h2>Profile</h2>
+      <p style="font-size: 1rem; color: var(--mid); line-height: 1.7;">
+        Currently studying Software Engineering, passionate about software development and innovative technologies. <br><br>
+        <strong>Goal:</strong> Seeking an internship or project opportunity to join an innovative company as a Fullstack Developer or Data Scientist intern.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Education</h2>
+      <ul class="timeline">
+        <li>
+          <div class="tl-date">2024 – 2025</div>
+          <div class="tl-title">Cycle Ingénieur — Génie Logiciel</div>
+          <div class="tl-subtitle">Fac de Science de Bizerte</div>
+        </li>
+        <li>
+          <div class="tl-date">2022 – 2024</div>
+          <div class="tl-title">Cycle Préparatoire Intégré</div>
+          <div class="tl-subtitle">Fac de Science de Bizerte</div>
+        </li>
+        <li>
+          <div class="tl-date">2018 – 2022</div>
+          <div class="tl-title">Bac Technique (Mention Bien)</div>
+          <div class="tl-subtitle">Lycée Farhat Hached, Bizerte</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Languages</h2>
+      <div class="progress-list">
+        <div class="progress-item">
+          <div class="progress-label"><span>Arabic</span><span>100%</span></div>
+          <div class="progress-bar"><div class="progress-fill" data-width="100%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label"><span>English</span><span>80%</span></div>
+          <div class="progress-bar"><div class="progress-fill" data-width="80%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label"><span>French</span><span>65%</span></div>
+          <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label"><span>German</span><span>25%</span></div>
+          <div class="progress-bar"><div class="progress-fill" data-width="25%"></div></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="card fade-in" id="experience">
+      <h2>Experience</h2>
+      <ul class="timeline">
+        <li>
+          <div class="tl-date">July 2025</div>
+          <div class="tl-title">Full Stack Developer Intern (Django)</div>
+          <div class="tl-subtitle">Vnext Consulting</div>
+          <ul class="tl-desc">
+            <li>Designed and developed a web application for managing refugee camps for the Tunisian government.</li>
+            <li>Centralized data (refugees, tents), managed stocks/donations and coordinated field teams.</li>
+            <li><strong>Stack:</strong> Python, Django, PostgreSQL, Bootstrap 5, Git.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card fade-in" id="projects">
+      <h2>Academic Projects</h2>
+      <div class="project-grid">
+        <div class="project">
+          <div class="project-title">LinkedIn-like Professional Network</div>
+          <p class="project-desc">Created a professional networking platform in Java 8 with Scene Builder. Implemented the user interface and interaction management.</p>
+        </div>
+        <div class="project">
+          <div class="project-title">Data Classification & Visualization</div>
+          <p class="project-desc">Applied classification techniques in Python with graphical visualization of results. Covered data preprocessing and machine learning model training.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in" id="skills">
+      <h2>Technical Skills</h2>
+      
+      <div class="skill-group">
+        <div class="skill-label">Programming Languages</div>
+        <div class="progress-list" style="margin-top: 10px;">
+          <div class="progress-item">
+            <div class="progress-label"><span>Python</span><span>80%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-width="80%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>HTML / CSS</span><span>80%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-width="80%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Java</span><span>70%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-width="70%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>C++</span><span>60%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-width="60%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>JavaScript, PHP, Go</span><span>50%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-width="50%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-group" style="margin-top: 36px;">
+        <div class="skill-label">Databases</div>
+        <div class="tags">
+          <span class="tag">MySQL</span>
+          <span class="tag">Oracle</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Domains & Tools</div>
+        <div class="tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">UML Modeling</span>
+          <span class="tag">JUnit / Selenium / Katalon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in" id="certifications">
+      <h2>Certifications & Awards</h2>
+      
+      <div class="cert-gallery">
+        <div class="cert-item">
+          <div class="cert-img-container">
+            <iframe src="certifs/airflow.pdf" width="100%" height="100%" style="border: none;"></iframe>
+          </div>
+          <div class="cert-info">
+            <p>Airflow</p>
+            <span class="cert-source">DataCamp</span>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-img-container">
+            <iframe src="certifs/docker3.pdf" width="100%" height="100%" style="border: none;"></iframe>
+          </div>
+          <div class="cert-info">
+            <p>Docker Part 1</p>
+            <span class="cert-source">DataCamp</span>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-img-container">
+            <iframe src="certifs/docker2.pdf" width="100%" height="100%" style="border: none;"></iframe>
+          </div>
+          <div class="cert-info">
+            <p>Docker Part 2</p>
+            <span class="cert-source">DataCamp</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+
+
+  // 2. Scroll Animations (Fade-in cards & Animate Progress Bars)
+  document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Fade in cards
+          if(entry.target.classList.contains('fade-in')) {
+            entry.target.classList.add('visible');
+          }
+          // Animate progress gauges
+          if(entry.target.classList.contains('progress-fill')) {
+            const targetWidth = entry.target.getAttribute('data-width');
+            entry.target.style.width = targetWidth;
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Observe fade-in elements
+    document.querySelectorAll('.fade-in').forEach((element) => {
+      observer.observe(element);
+    });
+
+    // Observe progress bars
+    document.querySelectorAll('.progress-fill').forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>
+
+</body>
+</html>
