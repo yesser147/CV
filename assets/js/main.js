@@ -119,8 +119,10 @@
               </div>
               <span class="pill mono">${esc(x.period)}</span>
             </div>
+            ${x.summary ? `<p class="xp-summary">${rich(x.summary)}</p>` : ""}
             <ul class="bullets">${list(x.bullets, (b) => `<li>${rich(b)}</li>`)}</ul>
             ${x.stack?.length ? tags(x.stack, "tag tag-accent") : ""}
+            ${x.github ? `<a class="xp-link" href="${esc(x.github)}" target="_blank" rel="noopener">${icon("github")}View the project on GitHub</a>` : ""}
           </li>`)}
       </ol>`,
 

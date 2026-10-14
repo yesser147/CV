@@ -232,6 +232,9 @@ strong { color: var(--text); font-weight: 700; }
 
 .xp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
 .xp-head .tl-title { font-size: 1.15rem; }
+.xp-summary { margin-bottom: 12px; }
+.xp-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 0.9rem; font-weight: 600; color: var(--accent); }
+.xp-link:hover { text-decoration: underline; }
 .bullets { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; color: var(--text-2); }
 .bullets li { position: relative; padding-left: 20px; }
 .bullets li::before { content: ""; position: absolute; left: 4px; top: 0.7em; width: 6px; height: 6px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }

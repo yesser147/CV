@@ -1,0 +1,86 @@
+% simplehipstercv.sty
+% Required by simplehipstercv.cls
+\ProvidesPackage{simplehipstercv}[2019/06/22]
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{paracol}
+\RequirePackage{graphicx}
+\RequirePackage{fontawesome5}
+\RequirePackage{array}
+\RequirePackage{tabularx}
+\RequirePackage{ragged2e}
+\RequirePackage{multirow}
+\RequirePackage{calc}
+\RequirePackage{hyperref}
+\RequirePackage{pgf}
+\usetikzlibrary{positioning,calc,backgrounds}
+
+\hypersetup{hidelinks}
+
+% ── \simpleheader{bgcolour}{First}{Last}{Title}{fontcolour} ──
+\newcommand{\simpleheader}[5]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[#1] (current page.north west) rectangle
+              ([yshift=-2.6cm]current page.north east);
+    \node[anchor=west, text=#5] at ([xshift=1.5cm,yshift=-0.9cm]current page.north west)
+      {\fontsize{30}{32}\selectfont\bfseries #2\ #3};
+    \node[anchor=west, text=#5!75] at ([xshift=1.55cm,yshift=-1.85cm]current page.north west)
+      {\large #4};
+  \end{tikzpicture}%
+  \vspace{2.6cm}%
+}
+
+% ── \roundpic{filename} ──────────────────────────────────────
+\newcommand{\roundpic}[1]{%
+  \begin{tikzpicture}
+    \clip (0,0) circle (1.5cm);
+    \node at (0,0){\includegraphics[width=3cm,height=3cm,keepaspectratio=false]{#1}};
+  \end{tikzpicture}%
+}
+
+% ── \bg{bgcolour}{fontcolour}{text} ──────────────────────────
+\newcommand{\bg}[3]{%
+  \colorbox{#1}{\color{#2}\bfseries\small\strut\enspace#3\enspace}%
+}
+
+% ── \barrule{fraction}{height}{colour} ───────────────────────
+\newcommand{\barrule}[3]{%
+  \begin{tikzpicture}[baseline=2pt]
+    \fill[black!15] (0,0) rectangle (4cm,#2);
+    \fill[#3]       (0,0) rectangle (#1*4cm,#2);
+  \end{tikzpicture}%
+}
+
+% ── \icon{icon}{colour}{text} ────────────────────────────────
+\newcommand{\icon}[3]{%
+  {\color{#2}#1}\enspace#3%
+}
+
+% ── \cvevent{date}{title}{org}{location}{desc} ───────────────
+\newcommand{\cvevent}[5]{%
+  \multicolumn{2}{l}{}\\[-6pt]
+  {\footnotesize\color{black!60}#1} &
+  \textbf{\small#2}\\
+  & {\footnotesize\textit{#3}\ifx&#4&\else,\ #4\fi}\\
+  & {\footnotesize#5}%
+}
+
+% ── \cvdegree{dates}{degree}{field}{school}{country}{grade} ──
+\newcommand{\cvdegree}[6]{%
+  {\footnotesize\color{black!60}#1} &
+  \textbf{\small#2} & \\
+  & {\footnotesize\textit{#3}} & \\
+  & {\footnotesize#4\ifx&#6&\else\ –\ #6\fi} & \\
+}
+
+% ── \pictofraction{icon}{fillcol}{n}{emptycol}{m}{size} ──────
+% Draws n filled + m empty icons
+\newcommand{\pictofraction}[6]{%
+  \foreach \i in {1,...,#3}{{\color{#2}#6#1}\hspace{1pt}}%
+  \foreach \i in {1,...,#5}{{\color{#4}#6#1}\hspace{1pt}}%
+}
+
+\endinput

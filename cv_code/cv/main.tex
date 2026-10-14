@@ -1,0 +1,277 @@
+% ============================================================
+%  CV – Yasser Saidani  (VERSION FRANÇAISE MISE À JOUR)
+%  Requires in the SAME Overleaf project folder:
+%    • simplehipstercv.cls
+%    • simplehipstercv.sty
+%    • image_prifisionnel.png
+%  Compiler: pdfLaTeX
+% ============================================================
+\documentclass[lighthipster]{simplehipstercv}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage[margin=1.2cm, a4paper]{geometry}
+\usepackage{xcolor}
+
+\definecolor{branddark}{HTML}{2D3748}
+\definecolor{skillaccent}{HTML}{4A5568}
+
+\newlength{\rightcolwidth}
+\newlength{\leftcolwidth}
+\setlength{\leftcolwidth}{0.23\textwidth}
+\setlength{\rightcolwidth}{0.75\textwidth}
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+\simpleheader{branddark}{Yasser}{Saidani}{Étudiant en Génie Logiciel}{white}
+
+\vspace{0.4em}
+
+\setlength{\columnsep}{1.2cm}
+\columnratio{0.23}[0.75]
+\begin{paracol}{2}
+\hbadness5000
+\paracolbackgroundoptions
+
+% ════════════════════════════════════════════════════════════
+%  BARRE LATÉRALE
+% ════════════════════════════════════════════════════════════
+\footnotesize
+{\setasidefontcolour
+\raggedleft
+
+\begin{center}
+  \roundpic{image_prifisionnel.png}
+\end{center}
+\vspace{0.6em}
+
+\bg{branddark}{white}{Contact}\\[0.5em]
+\faEnvelope\enspace  {\footnotesize saidaniyesser999@gmail.com}\\[0.4em]
+\faPhone\enspace     {\footnotesize +216 50 552 771}\\[0.4em]
+\faGithub\enspace    {\footnotesize github.com/yesser147}\\[0.4em]
+\faMapMarker\enspace {\footnotesize Bizerte, Tunisie}\\[0.8em]
+
+\bg{branddark}{white}{À propos}\\[0.5em]
+{\footnotesize
+Étudiant en cycle ingénieur en génie
+logiciel, passionné par le développement
+logiciel et les technologies innovantes.
+Je cherche un stage pour appliquer mes
+compétences en programmation et en
+conception logicielle, en tant que
+développeur full-stack ou data scientist.}\\[0.8em]
+
+\bg{branddark}{white}{Personnel}\\[0.5em]
+Yasser Saidani\\[0.3em]
+Nationalité Tunisienne\\[0.3em]
+Bizerte, Tunisie\\[0.8em]
+
+\bg{branddark}{white}{Spécialisations}\\[0.5em]
+Développement Full-Stack\\[0.3em]
+Développement Mobile\\[0.3em]
+Science des Données\\[0.3em]
+Architecture Logicielle\\[0.3em]
+Assurance Qualité\\[0.8em]
+
+\bg{branddark}{white}{Centres d'intérêt}\\[0.5em]
+Programmation~\textbullet~IA\\[0.3em]
+Résolution de problèmes\\[0.3em]
+Cybersécurité\\[0.3em]
+Développement Web\\[0.3em]
+Jeux Vidéo\\[0.8em]
+
+\bg{branddark}{white}{Méthodologies}\\[0.5em]
+\texttt{Modélisation UML}\\[0.3em]
+\texttt{Conception Logicielle}\\[0.3em]
+\texttt{Algorithmes}\\[0.3em]
+\texttt{Structures de Données}\\[0.3em]
+\texttt{JUnit}~/~\texttt{Katalon}\\[0.3em]
+\texttt{Selenium}~/~\texttt{Git}\\[0.3em]
+}
+
+% ════════════════════════════════════════════════════════════
+%  COLONNE PRINCIPALE
+% ════════════════════════════════════════════════════════════
+\switchcolumn
+\small
+
+% ── Expérience Professionnelle ────────────────────────────────
+\section*{Expérience Professionnelle}
+\begin{tabular}{r| p{0.52\textwidth}}
+  \cvevent{Août--Sept. 2026}%
+          {Stagiaire Développeur Full-Stack \& IA}%
+          {Dynamix Services}{Bizerte}%
+          {Réalisation de \textbf{Nexus ERP}, plateforme RH intégrant l'IA et
+           l'informatique décisionnelle : employés, congés, évaluations,
+           recrutement et tableaux de bord.}\\
+  & \textbullet\ API REST Spring Boot (JWT, gestion des rôles, Flyway) et
+    application web Angular avec site carrières public.\\
+  & \textbullet\ Recrutement assisté par l'IA : analyse et classement des CV par
+    LLM, recherche sémantique (pgvector), chatbot RH générant des requêtes SQL
+    sécurisées et des graphiques.\\
+  & \textbullet\ Prédiction du risque de départ (XGBoost + SHAP), aide à
+    l'allocation du budget formation et pipeline ETL Python vers PostgreSQL.\\
+  & \textbullet\ \textbf{Stack :} Angular, Spring Boot, FastAPI, PostgreSQL,
+    LLM (Groq, Ollama), Docker.\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/Smart\_ERP}\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{Juillet 2025}%
+          {Stagiaire Développeur Full Stack (Django)}%
+          {Vnext Consulting}{Tunisia}%
+          {Conception et développement d'une application web de gestion de
+           camps de réfugiés pour le compte de l'État Tunisien.}\\
+  & \textbullet\ Centralisation des données (réfugiés, tentes), gestion des
+    stocks/dons et coordination des équipes terrain.\\
+  & \textbullet\ \textbf{Stack :} Python, Django, PostgreSQL, Bootstrap~5, Git.
+\end{tabular}
+
+\vspace{1.6em}
+
+% ── Formation + Compétences ───────────────────────────────────
+\begin{minipage}[t]{0.42\textwidth}
+\vspace{0pt}
+\section*{Formation}
+\begin{tabular}{r p{0.65\textwidth} c}
+  \cvdegree{2024--2025}{Cycle Ingénieur}{Génie Logiciel}%
+           {Fac. des Sciences de Bizerte}{}{}\\
+  \cvdegree{2022--2024}{Cycle Préparatoire}{Intégré}%
+           {Fac. des Sciences de Bizerte}{}{}\\
+  \cvdegree{2018--2022}{Bac Technique}{Mention Bien}%
+           {Lycée Farhat Hached}{}{}
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\vspace{0pt}
+\section*{Compétences Techniques}
+{\footnotesize
+\textbf{Langages :}\\[3pt]
+\hspace*{4pt} Python \textbullet\ Java \textbullet\ C++ \textbullet\ JavaScript\\[2pt]
+\hspace*{4pt} PHP \textbullet\ Go \textbullet\ HTML/CSS \textbullet\ Dart\\[6pt]
+\textbf{Frameworks :}\\[3pt]
+\hspace*{4pt} Django \textbullet\ Spring Boot \textbullet\ Flutter\\[2pt]
+\hspace*{4pt} Express.js / Node.js \textbullet\ Angular\\[6pt]
+\textbf{Bases de données :}\\[3pt]
+\hspace*{4pt} MySQL \textbullet\ PostgreSQL \textbullet\ Oracle\\[2pt]
+\hspace*{4pt} MongoDB \textbullet\ HBase
+}
+\end{minipage}
+
+\vspace{0.3em}
+
+% ── Projets Académiques (page 1) ─────────────────────────────
+\section*{Projets Académiques}
+\begin{tabular}{r| p{0.52\textwidth}}
+  \cvevent{2025}%
+          {Portail de Gestion Universitaire Propulsé par l'IA}%
+          {Express.js · Agent IA Autonome · Web}{Académique}%
+          {Système d'administration universitaire avancé doté d'un agent IA autonome capable d'interroger la base de données et d'exécuter des pipelines de vérification automatisés.}\\
+  & \textbullet\ Conception du suivi automatique des absences et de flux de travail de validation basés sur l'IA.\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/PFA}\\
+\end{tabular}
+
+\newpage
+
+% ── Projets Académiques (page 2) ─────────────────────────────
+\begin{tabular}{r| p{0.52\textwidth}}
+  \cvevent{2025}%
+          {Système IoT de Détection d'Anomalies de Véhicule}%
+          {React · Arduino · MQTT · Supabase}{Académique}%
+          {Système IoT basé sur gyroscope détectant les inclinaisons anormales
+           d'un véhicule et envoyant des alertes en temps réel via Telegram.}\\
+  & \textbullet\ Programmation de l'Arduino Uno avec capteur gyroscope ;
+    transmission des données via le protocole MQTT.\\
+  & \textbullet\ Supabase pour le stockage temps réel ; Hive pour le cache
+    local côté React.\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/SafeRide}\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{2025}%
+          {Application Mobile — Suivi de Présence Universitaire}%
+          {Flutter · XAMPP · MySQL}{Académique}%
+          {Application mobile complète avec tableaux de bord pour
+           administrateurs et enseignants.}\\
+  & \textbullet\ Gestion dynamique des étudiants, enseignants et classes.\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/projet\_mobil}\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{2025}%
+          {Architecture Réseau d'Entreprise Universitaire}%
+          {EVE-NG · Cisco iOS · Routage}{Académique}%
+          {Conception, déploiement et simulation d'une topologie réseau universitaire complète avec des politiques de routage et des contrôles d'accès sécurisés.}\\
+  & \textbullet\ Mise en place d'environnements réseau isolés avec des niveaux de privilèges et des limites de bande passante distincts pour les administrateurs, les enseignants et les étudiants.\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{2025}%
+          {Plateforme de Réseau Professionnel Full-Stack}%
+          {Express.js · Node.js · MongoDB}{Académique}%
+          {Plateforme de type LinkedIn — gestion de profils, fils d'actualité
+           et relations backend avec authentification sécurisée.}\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/linkedinSocialMedia}\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{2024}%
+          {Classification \& Visualisation de Données}%
+          {Python · Machine Learning}{Académique}%
+          {Pipelines de classification avec prétraitement automatisé et
+           visualisation des performances. Stack : Scikit-learn, Pandas, Matplotlib.}\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/ml}\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{2024}%
+          {Application Desktop — Réseau Professionnel}%
+          {Java 8 · JavaFX · Scene Builder}{Académique}%
+          {Interface de réseautage professionnel avec gestion fluide
+           des interactions graphiques.}
+\end{tabular}
+
+\vspace{1.6em}
+
+% ── Certifications + Compétences transversales | Langues ─────
+\begin{minipage}[t]{0.42\textwidth}
+\section*{Certifications}
+\begin{tabular}{>{\footnotesize\bfseries}r >{\footnotesize}p{0.62\textwidth}}
+  DataCamp  & Introduction à Airflow en Python\\[0.3em]
+  DataCamp  & Introduction à Docker (Partie 1)\\[0.3em]
+  DataCamp  & Docker Intermédiaire (Partie 2)\\[0.3em]
+  Certiport & Microsoft Specialist PowerPoint\\[0.3em]
+  Certiport & Microsoft Specialist Excel\\[0.3em]
+  Certiport & Microsoft Specialist Word
+\end{tabular}
+
+\vspace{1em}
+\section*{Compétences Transversales}
+\begin{tabular}{@{}l @{\hspace{0.8em}} l@{}}
+  \textbullet\ Travail en équipe  & \textbullet\ Communication\\
+  \textbullet\ Gestion du temps   & \textbullet\ Résolution de problèmes\\
+  \textbullet\ Leadership         &
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\section*{Langues}
+\begin{tabular}{l | l l}
+  \textbf{Arabe}    & Langue maternelle & \\[0.3em]
+  \textbf{Anglais}  & Courant    &
+    \pictofraction{\faCircle}{branddark}{4}{black!20}{1}{\tiny}\\[0.3em]
+  \textbf{Français} & Intermédiaire &
+    \pictofraction{\faCircle}{branddark}{3}{black!20}{2}{\tiny}\\[0.3em]
+  \textbf{Allemand} & Notions     &
+    \pictofraction{\faCircle}{branddark}{1}{black!20}{4}{\tiny}
+\end{tabular}
+\end{minipage}
+
+\vfill
+
+% ── Pied de page ─────────────────────────────────────────────
+\setlength{\parindent}{0pt}
+\begin{minipage}[t]{\rightcolwidth}
+\begin{center}
+\fontfamily{\sfdefault}\selectfont\color{black!60}
+{\small
+  Yasser Saidani\quad
+  \icon{\faEnvelope}{branddark}{}\enspace saidaniyesser999@gmail.com\quad
+  \icon{\faMapMarker}{branddark}{}\enspace Bizerte, Tunisie\quad
+  \icon{\faPhone}{branddark}{}\enspace +216~50~552~771
+}
+\end{center}
+\end{minipage}
+
+\end{paracol}
+\end{document}

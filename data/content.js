@@ -46,8 +46,28 @@ const CONTENT = {
     ],
   },
 
-  /* ─────────────── Experience (newest first) ─────────────── */
+  /* ─────────────── Experience (newest first) ───────────────
+     summary / location / github → optional                             */
   experience: [
+    {
+      period: "Aug – Sep 2026",
+      role: "Full-Stack & AI Developer Intern",
+      company: "Dynamix Services",
+      location: "Bizerte",
+      summary:
+        "Built **Nexus ERP** (Smart ERP Core), an HR platform with built-in AI and business intelligence: " +
+        "employees, leave, performance reviews, recruitment and KPI dashboards.",
+      bullets: [
+        "**Spring Boot** REST API with JWT authentication, role-based access (admin, HR, manager, employee), Flyway migrations and an audit log.",
+        "**Angular** web app (dashboards, staff management, recruitment, employee self-service) plus a public careers site where candidates apply with their CV.",
+        "AI recruitment: LLM-based CV analysis and candidate ranking, semantic CV search (**pgvector**), generated job descriptions and interview questions.",
+        "HR chatbot that turns natural-language questions into safe SQL queries and returns answers and charts (Groq, with Ollama as local fallback).",
+        "Machine learning: employee attrition-risk model (**XGBoost** + SHAP explanations) and a training-budget advisor with a what-if simulator.",
+        "Python ETL pipeline loading HR datasets into PostgreSQL; whole platform containerized with **Docker Compose**.",
+      ],
+      stack: ["Angular", "Spring Boot", "Python", "FastAPI", "PostgreSQL", "pgvector", "XGBoost", "LLM", "Docker"],
+      github: "https://github.com/yesser147/Smart_ERP",
+    },
     {
       period: "July 2025",
       role: "Full Stack Developer Intern (Django)",

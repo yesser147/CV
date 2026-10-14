@@ -1,0 +1,275 @@
+% ============================================================
+%  CV – Yasser Saidani
+%  Requires in the SAME Overleaf project folder:
+%    • simplehipstercv.cls
+%    • simplehipstercv.sty
+%    • image_prifisionnel.png
+%  Compiler: pdfLaTeX
+% ============================================================
+\documentclass[lighthipster]{simplehipstercv}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage[margin=1.2cm, a4paper]{geometry}
+\usepackage{xcolor}
+
+\definecolor{branddark}{HTML}{2D3748}
+\definecolor{skillaccent}{HTML}{4A5568}
+
+\newlength{\rightcolwidth}
+\newlength{\leftcolwidth}
+\setlength{\leftcolwidth}{0.23\textwidth}
+\setlength{\rightcolwidth}{0.75\textwidth}
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+\simpleheader{branddark}{Yasser}{Saidani}{Software Engineering Student}{white}
+
+\vspace{0.4em}
+
+\setlength{\columnsep}{1.2cm}
+\columnratio{0.23}[0.75]
+\begin{paracol}{2}
+\hbadness5000
+\paracolbackgroundoptions
+
+% ════════════════════════════════════════════════════════════
+%  SIDEBAR
+% ════════════════════════════════════════════════════════════
+\footnotesize
+{\setasidefontcolour
+\raggedleft
+
+\begin{center}
+  \roundpic{image_prifisionnel.png}
+\end{center}
+\vspace{0.6em}
+
+\bg{branddark}{white}{Contact Info}\\[0.5em]
+\faEnvelope\enspace  {\footnotesize saidaniyesser999@gmail.com}\\[0.4em]
+\faPhone\enspace     {\footnotesize +216 50 552 771}\\[0.4em]
+\faGithub\enspace    {\footnotesize github.com/yesser147}\\[0.4em]
+\faMapMarker\enspace {\footnotesize Bizerte, Tunisia}\\[0.8em]
+
+\bg{branddark}{white}{About me}\\[0.5em]
+{\footnotesize
+Software engineering student passionate
+about software development and innovative
+technologies. Seeking an internship to
+apply my programming and software design
+skills as a full-stack developer or
+data scientist.}\\[0.8em]
+
+\bg{branddark}{white}{Personal}\\[0.5em]
+Yasser Saidani\\[0.3em]
+Tunisian Nationality\\[0.3em]
+Bizerte, Tunisia\\[0.8em]
+
+\bg{branddark}{white}{Specializations}\\[0.5em]
+Full-Stack Development\\[0.3em]
+Mobile Development\\[0.3em]
+Data Science\\[0.3em]
+Software Architecture\\[0.3em]
+Quality Assurance\\[0.8em]
+
+\bg{branddark}{white}{Interests}\\[0.5em]
+Programming~\textbullet~AI\\[0.3em]
+Problem-Solving\\[0.3em]
+Cybersecurity\\[0.3em]
+Web Development\\[0.3em]
+Video Games\\[0.8em]
+
+\bg{branddark}{white}{Methodologies}\\[0.5em]
+\texttt{UML Modelling}\\[0.3em]
+\texttt{Software Design}\\[0.3em]
+\texttt{Algorithms}\\[0.3em]
+\texttt{Data Structures}\\[0.3em]
+\texttt{JUnit}~/~\texttt{Katalon}\\[0.3em]
+\texttt{Selenium}~/~\texttt{Git}\\[0.3em]
+}
+
+% ════════════════════════════════════════════════════════════
+%  MAIN PANE
+% ════════════════════════════════════════════════════════════
+\switchcolumn
+\small
+
+% ── Professional Experience ──────────────────────────────────
+\section*{Professional Experience}
+\begin{tabular}{r| p{0.52\textwidth}}
+  \cvevent{Aug--Sep 2026}%
+          {Full-Stack \& AI Developer Intern}%
+          {Dynamix Services}{Bizerte}%
+          {Built \textbf{Nexus ERP}, an HR platform with built-in AI and business
+           intelligence: employees, leave, reviews, recruitment and KPI dashboards.}\\
+  & \textbullet\ Spring Boot REST API (JWT, role-based access, Flyway) and Angular
+    web app with a public careers site.\\
+  & \textbullet\ AI recruitment: LLM-based CV analysis and candidate ranking,
+    semantic CV search (pgvector), HR chatbot turning questions into safe SQL
+    queries and charts.\\
+  & \textbullet\ Attrition-risk prediction (XGBoost + SHAP), training-budget
+    advisor and Python ETL pipeline into PostgreSQL.\\
+  & \textbullet\ \textbf{Stack:} Angular, Spring Boot, FastAPI, PostgreSQL,
+    LLMs (Groq, Ollama), Docker.\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/Smart\_ERP}\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{July 2025}%
+          {Full Stack Developer Intern (Django)}%
+          {Vnext Consulting}{Tunisia}%
+          {Design and development of a web application for managing refugee
+           camps on behalf of the Tunisian State.}\\
+  & \textbullet\ Centralized data (refugees, tents), managed stocks/donations
+    and coordinated field teams.\\
+  & \textbullet\ \textbf{Stack:} Python, Django, PostgreSQL, Bootstrap~5, Git.
+\end{tabular}
+
+\vspace{1.6em}
+
+% ── Education + Programming Skills ───────────────────────────
+\begin{minipage}[t]{0.42\textwidth}
+\vspace{0pt}
+\section*{Education}
+\begin{tabular}{r p{0.65\textwidth} c}
+  \cvdegree{2024--2025}{Engineering Cycle}{Software Engineering}%
+           {Faculty of Sciences, Bizerte}{}{}\\
+  \cvdegree{2022--2024}{Preparatory Cycle}{Integrated}%
+           {Faculty of Sciences, Bizerte}{}{}\\
+  \cvdegree{2018--2022}{Technical Baccalaureate}{Distinction}%
+           {Lycée Farhat Hached}{}{}
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\vspace{0pt}
+\section*{Programming Skills}
+{\footnotesize
+\textbf{Languages:}\\[3pt]
+\hspace*{4pt} Python \textbullet\ Java \textbullet\ C++ \textbullet\ JavaScript\\[2pt]
+\hspace*{4pt} PHP \textbullet\ Go \textbullet\ HTML/CSS \textbullet\ Dart\\[6pt]
+\textbf{Frameworks:}\\[3pt]
+\hspace*{4pt} Django \textbullet\ Spring Boot \textbullet\ Flutter\\[2pt]
+\hspace*{4pt} Express.js / Node.js \textbullet\ Angular\\[6pt]
+\textbf{Databases:}\\[3pt]
+\hspace*{4pt} MySQL \textbullet\ PostgreSQL \textbullet\ Oracle\\[2pt]
+\hspace*{4pt} MongoDB \textbullet\ HBase
+}
+\end{minipage}
+
+\vspace{0.3em}
+
+% ── Academic Projects (page 1) ────────────────────────────────
+\section*{Academic Projects}
+\begin{tabular}{r| p{0.52\textwidth}}
+  \cvevent{2025}%
+          {AI-Powered University Management Portal}%
+          {Express.js · Autonomous AI Agent · Web}{Academic}%
+          {Advanced university administration system featuring an autonomous AI agent capable of querying the database and running automated verification pipelines.}\\
+  & \textbullet\ Engineered automatic absence tracking and AI-driven validation workflows.\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/PFA}\\
+\end{tabular}
+
+\newpage
+
+% ── Academic Projects (page 2) ────────────────────────────────
+\begin{tabular}{r| p{0.52\textwidth}}
+  \cvevent{2025}%
+          {IoT Vehicle Tilt \& Anomaly Detection System}%
+          {React · Arduino · MQTT · Supabase}{Academic}%
+          {Gyroscope-based IoT system detecting abnormal vehicle tilt or movement
+           and sending real-time alerts to a Telegram group.}\\
+  & \textbullet\ Programmed Arduino Uno with gyroscope sensor; transmitted data
+    via MQTT protocol.\\
+  & \textbullet\ Used Supabase for real-time data storage and Hive for local
+    caching on the React front-end.\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/SafeRide}\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{2025}%
+          {Mobile App — University Attendance Tracking}%
+          {Flutter · XAMPP · MySQL}{Academic}%
+          {Full mobile app with admin and teacher dashboards for real-time
+           student attendance management.}\\
+  & \textbullet\ Dynamic management of students, teachers, and classes.\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/projet\_mobil}\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{2025}%
+          {University Enterprise Network Architecture}%
+          {EVE-NG · Cisco iOS · Routing}{Academic}%
+          {Designed, deployed, and simulated a comprehensive university network topology layout with secure access controls and routing policies.}\\
+  & \textbullet\ Established isolated network environments with distinct privilege levels and bandwidth limits for Administrators, Teachers, and Students.\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{2025}%
+          {Full-Stack Professional Network Platform}%
+          {Express.js · Node.js · MongoDB}{Academic}%
+          {LinkedIn-style platform — profile management, social feeds, and
+           backend relation mapping with secure authentication.}\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/linkedinSocialMedia}\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{2024}%
+          {Data Classification \& Visualisation}%
+          {Python · Machine Learning}{Academic}%
+          {Classification pipelines with automated preprocessing and performance
+           visualisation. Stack: Scikit-learn, Pandas, Matplotlib.}\\
+  & \textbullet\ \faGithub\ \texttt{https://github.com/yesser147/ml}\\
+  \noalign{\vspace{0.9em}}
+  \cvevent{2024}%
+          {Desktop Professional Networking App}%
+          {Java 8 · JavaFX · Scene Builder}{Academic}%
+          {Professional networking desktop interface with smooth graphical
+           interaction management.}
+\end{tabular}
+
+\vspace{1.6em}
+
+% ── Certifications + Soft Skills  |  Languages ───────────────
+\begin{minipage}[t]{0.42\textwidth}
+\section*{Certifications}
+\begin{tabular}{>{\footnotesize\bfseries}r >{\footnotesize}p{0.62\textwidth}}
+  DataCamp  & Introduction to Airflow in Python\\[0.3em]
+  DataCamp  & Introduction to Docker (Part 1)\\[0.3em]
+  DataCamp  & Intermediate Docker (Part 2)\\[0.3em]
+  Certiport & Microsoft Specialist PowerPoint\\[0.3em]
+  Certiport & Microsoft Specialist Excel\\[0.3em]
+  Certiport & Microsoft Specialist Word
+\end{tabular}
+
+\vspace{1em}
+\section*{Soft Skills}
+\begin{tabular}{@{}l @{\hspace{0.8em}} l@{}}
+  \textbullet\ Teamwork      & \textbullet\ Communication\\
+  \textbullet\ Time Management & \textbullet\ Problem-Solving\\
+  \textbullet\ Leadership    &
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\section*{Languages}
+\begin{tabular}{l | l l}
+  \textbf{Arabic}   & Native    & {\footnotesize Mother Tongue}\\[0.3em]
+  \textbf{English}  & Fluent    &
+    \pictofraction{\faCircle}{branddark}{4}{black!20}{1}{\tiny}\\[0.3em]
+  \textbf{French}   & Intermed. &
+    \pictofraction{\faCircle}{branddark}{3}{black!20}{2}{\tiny}\\[0.3em]
+  \textbf{German}   & Basic     &
+    \pictofraction{\faCircle}{branddark}{1}{black!20}{4}{\tiny}
+\end{tabular}
+\end{minipage}
+
+\vfill
+
+% ── Footer ───────────────────────────────────────────────────
+\setlength{\parindent}{0pt}
+\begin{minipage}[t]{\rightcolwidth}
+\begin{center}
+\fontfamily{\sfdefault}\selectfont\color{black!60}
+{\small
+  Yasser Saidani\quad
+  \icon{\faEnvelope}{branddark}{}\enspace saidaniyesser999@gmail.com\quad
+  \icon{\faMapMarker}{branddark}{}\enspace Bizerte, Tunisia\quad
+  \icon{\faPhone}{branddark}{}\enspace +216~50~552~771
+}
+\end{center}
+\end{minipage}
+
+\end{paracol}
+\end{document}
